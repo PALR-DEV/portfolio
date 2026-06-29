@@ -1,0 +1,121 @@
+---
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About | Pedro Lorenzo" description="About Pedro Lorenzo Rosario Software Engineer">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			>
+				<img
+					width="600"
+					height="338"
+					src="/public/assets/profile.jpg"
+					alt="Pedro Lorenzo Rosario"
+					style="display: block; margin: 0 auto;"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						I'm a Software Engineer with hands-on experience building scalable web and mobile applications
+						using React, Angular, Node.js, and .NET. I have a strong foundation in backend infrastructure,
+						database design, and API integrations.
+					</p>
+					<p>
+						Currently working at Lockheed Martin as a Software Engineer, where I improve performance and
+						scalability of internal applications, maintain backend infrastructure, and collaborate in Agile
+						sprints to ship new features.
+					</p>
+					<p>
+						I'm passionate about delivering user-centric products and open-source tooling that makes
+						developers' lives easier like DevStack CLI, a tool I built to automate local development
+						environments using Docker.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>Bachelor of Science in Computer Science Interamericana de Puerto Rico, San Germán (2019 – 2024)</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p><strong>Languages:</strong> Python, JavaScript, TypeScript, Java, C#, SQL</p>
+					<p><strong>Frontend:</strong> React, React Native, Angular, Tailwind CSS</p>
+					<p><strong>Backend:</strong> Node.js, .NET, Flask</p>
+					<p><strong>Databases:</strong> PostgreSQL, MySQL, Redis, Oracle</p>
+					<p><strong>DevOps & Tools:</strong> Docker, Linux, Git, GitHub</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
